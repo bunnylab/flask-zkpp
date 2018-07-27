@@ -1,0 +1,19 @@
+<!doctype html>
+<title>Flask ZKPP</title>
+<nav>
+  <h1>Flask ZKPP</h1>
+  <ul>
+    {% if g.user %}
+      <li><span>{{ g.user['username'] }}</span>
+      <li><a href="{{ url_for('login_views.logout') }}">Log Out</a>
+    {% else %}
+      <li><a href="{{ url_for('login_views.login') }}">Log In</a>
+    {% endif %}
+  </ul>
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% block content %}{% endblock %}
+</section>
